@@ -74,7 +74,10 @@ const playernameBtn = document.getElementById("playernameBtn");
 playernameBtn.addEventListener("click", playerOneMenu);
 
 function playerOneMenu() {
-document.getElementById("form-popup1").style.display = "block";
+    for (const cell of cellArray) {
+        cell.textContent = "";
+    }
+    document.getElementById("form-popup1").style.display = "block";
 }
 
 const submitP1Btn = document.getElementById("submitp1");
