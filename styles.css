@@ -7,15 +7,15 @@ html, body {
 }
 
 html {
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-image: linear-gradient(to bottom, #a0d2eb, #e5eaf5,
+    #d0bdf4, #8458B3);
 }
 
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: linear-gradient(to bottom, #a0d2eb, #e5eaf5,
-    #d0bdf4, #8458B3);
 }
 
 #heading {
@@ -44,24 +44,26 @@ td {
     border-radius: 12px;
     background-color: #bf86fc;
     margin: 30px;
+    border: none;
+    box-shadow: 2px 2px 4px black;
 }
 
-#playernameBtn:hover, input[type=button]:hover {
+#playernameBtn:hover, input[type=button]:hover, #replay:hover, #change:hover {
     background-color: #995ed8;
 }
 
 #form-popup1, #form-popup2 {
     display: none;
     font-size: 20px;
-    width: 400px;
+    width: 340px;
     height: 150px;
     background-color: #d0bdf4;
     border: solid 1px black;
     border-radius: 10px;
     position: fixed;
-    top: 55%;
+    top: 47%;
     left: 50%;
-    margin-left: -200px;
+    margin-left: -170px;
     padding-bottom: 30px;
 }
 
@@ -77,7 +79,7 @@ label[for=p1name], label[for=p2name] {
 
 input[type=text] {
     width: 70%;
-    padding: 12px;
+    padding: 5px;
     margin: 10px 10px 0px 10px;
     border: none;
     background-color: #e5eaf5;
@@ -85,11 +87,12 @@ input[type=text] {
     color: black;
 }
 
-input[type=button] {
+input[type=button], #replay, #change {
     font-size: 16px;
     font-weight: 700;
     width: 30%;
     padding: 10px;
+    margin: 5px;
     border-radius: 10px;
     background-color: #bf86fc;
     color: black;
@@ -97,8 +100,16 @@ input[type=button] {
     box-shadow: 2px 2px 4px black;
 }
 
+#replay, #change {
+    display: none;
+    margin: 15px;
+    width: 200px;
+    font-size: 18px;
+}
+
 #display {
     font-size: 24px;
+    margin: 40px 30px 10px 30px;
 }
 
 footer {

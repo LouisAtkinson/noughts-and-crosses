@@ -3,12 +3,31 @@ const rowOne = document.getElementById("rowone");
 const rowTwo = document.getElementById("rowtwo");
 const rowThree = document.getElementById("rowthree");
 
+const playernameBtn = document.getElementById("playernameBtn");
+playernameBtn.addEventListener("click", playerOneMenu);
 
+const submitP1Btn = document.getElementById("submitp1");
+submitP1Btn.addEventListener("click", submitP1);
+
+const submitP2Btn = document.getElementById("submitp2");
+submitP2Btn.addEventListener("click", submitP2);
+
+const replay = document.getElementById("replay");
+replay.addEventListener("click", function() {
+    clear();
+    replay.style.display = "none";
+    changeNames.style.display = "none";
+    p1Turn();
+});
+
+const changeNames = document.getElementById("change");
+changeNames.addEventListener("click", playerOneMenu)
 
 let playerOne = {};
 let playerTwo = {};
 let turn = 0;
-let win = 0
+let win = 0;
+let round = 0;
 const display = document.getElementById("display");
 
 const gameBoard = (() => {
@@ -38,6 +57,8 @@ let cellArray = Array.prototype.slice.call(cells);
 for (const cell of cellArray) {
     cell.addEventListener("click", function() {
         if (turn === "p1") {
+            round++;
+            console.log(round);
             cell.innerHTML = playerOne.mark;
             cell.mark = playerOne.mark;
             cell.occupied = 'yes';
@@ -45,7 +66,8 @@ for (const cell of cellArray) {
             if (win === 1) {
                 console.log("win")
                 winMessage(playerOne.name);
-                return;
+            } else if (round === 5){
+                drawMessage();
             } else {
                 p2Turn();
             }
@@ -56,7 +78,6 @@ for (const cell of cellArray) {
             checkWin(playerTwo.mark, playerTwo.name);
             if (win === 1) {
                 winMessage(playerTwo.name);
-                return;
             } else {
                 p1Turn();
             }
@@ -70,18 +91,14 @@ const player = (name, mark) => {
     return {name, mark, getName, getMark};
 }
 
-const playernameBtn = document.getElementById("playernameBtn");
-playernameBtn.addEventListener("click", playerOneMenu);
-
 function playerOneMenu() {
-    for (const cell of cellArray) {
-        cell.textContent = "";
-    }
+    clear();
+    display.style.display = "none";
+    playernameBtn.style.display = "none";
+    replay.style.display = "none";
+    changeNames.style.display = "none";
     document.getElementById("form-popup1").style.display = "block";
 }
-
-const submitP1Btn = document.getElementById("submitp1");
-submitP1Btn.addEventListener("click", submitP1);
 
 function submitP1() {
     let p1Name = document.getElementById("p1name").value;
@@ -90,9 +107,6 @@ function submitP1() {
     document.getElementById("form-popup2").style.display = "block";
     return playerOne;
 }
-
-const submitP2Btn = document.getElementById("submitp2");
-submitP2Btn.addEventListener("click", submitP2);
 
 function submitP2() {
     let p2Name = document.getElementById("p2name").value;
@@ -103,6 +117,7 @@ function submitP2() {
 }
 
 function p1Turn() {
+    display.style.display = "block";
     display.innerHTML = "It is " + playerOne.name + "'s turn";
     turn = "p1";
 }
@@ -114,8 +129,8 @@ function p2Turn() {
 
 function checkWin(mark, name) {
     console.log(mark)
-    if (gameBoard.a1.textContent === "X" && gameBoard.a2.textContent === 
-    "X" && gameBoard.a3.textContent === "X") {
+    if (gameBoard.a1.textContent === mark && gameBoard.a2.textContent === 
+    mark && gameBoard.a3.textContent === mark) {
         win = 1;
     } else if (gameBoard.b1.textContent === mark && gameBoard.b2.textContent === 
     mark && gameBoard.b3.textContent === mark) {
@@ -143,4 +158,23 @@ function checkWin(mark, name) {
 
 function winMessage(name) {
     display.innerHTML = "Congratulations " + name + "! You have won!"
+    win = 0;
+    round = 0;
+    turn = 0;
+    replay.style.display = "block";
+    changeNames.style.display = "block";
+}
+
+function drawMessage() {
+    display.innerHTML = "It's a draw!"
+    round = 0;
+    turn = 0;
+    replay.style.display = "block";
+    changeNames.style.display = "block";
+}
+
+function clear() {
+    for (const cell of cellArray) {
+        cell.textContent = "";
+    }
 }
