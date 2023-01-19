@@ -1,0 +1,127 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+html {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #a0d2eb, #e5eaf5,
+    #d0bdf4, #8458B3);
+}
+
+#heading {
+    font-size: 36px;
+}
+
+#boardcontainer {
+    height: 300px;
+    width: 300px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+td {
+    height: 100px;
+    width: 100px;
+    border: solid 5px gray;
+    text-align: center;
+    font-size: 80px;
+}
+
+#playernameBtn {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: #bf86fc;
+    margin: 30px;
+}
+
+#playernameBtn:hover, input[type=button]:hover {
+    background-color: #995ed8;
+}
+
+#form-popup1, #form-popup2 {
+    display: none;
+    font-size: 20px;
+    width: 400px;
+    height: 150px;
+    background-color: #d0bdf4;
+    border: solid 1px black;
+    border-radius: 10px;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    margin-left: -200px;
+    padding-bottom: 30px;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;;
+    align-items: center;
+}
+
+label[for=p1name], label[for=p2name] {
+    margin: 15px;
+}
+
+input[type=text] {
+    width: 70%;
+    padding: 12px;
+    margin: 10px 10px 0px 10px;
+    border: none;
+    background-color: #e5eaf5;
+    font-size: 16px;
+    color: black;
+}
+
+input[type=button] {
+    font-size: 16px;
+    font-weight: 700;
+    width: 30%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #bf86fc;
+    color: black;
+    border: none;
+    box-shadow: 2px 2px 4px black;
+}
+
+#display {
+    font-size: 24px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 8px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: transparent;
+}
+
+/* Ice Cold: #a0d2eb
+
+Freeze Purple: #e5eaf5
+
+Medium Purple: #d0bdf4
+
+Purple Pain: #8458B3
+
+Heavy Purple: #a28089 */

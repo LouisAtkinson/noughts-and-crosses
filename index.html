@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noughts and crosses</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="javascript.js" defer></script>
+</head>
+<body>
+    <h1 id="heading">Noughts and Crosses</h1>
+
+    <table id="boardcontainer" cellspacing="0">
+        <tr id="rowone"></tr>
+        <tr id="rowtwo"></tr>
+        <tr id="rowthree"></tr>
+    </table>
+
+    <button id="playernameBtn">Enter player names</button>
+
+    <div class="popup" id="form-popup1">
+        <form id="form">
+            <label for="p1name">Enter player one's name:</label>
+            <input type="text" id="p1name" name="p1name" placeholder="Louis..."><br>
+            <input type="button" id="submitp1" value="Done">
+        </form>    
+    </div>
+
+    <div class="popup" id="form-popup2">
+        <form id="form">
+            <label for="p2name">Enter player two's name:</label>
+            <input type="text" id="p2name" name="p2name" placeholder="Robot..."><br>
+            <input type="button" id="submitp2" value="Done">
+        </form> 
+    </div>
+
+    <div id="display"></div>
+
+    <footer>Copyright ©
+        <script>
+          document.write(new Date().getFullYear())
+        </script>
+        Louis Atkinson
+    </footer>
+    
+</body>
+</html>
