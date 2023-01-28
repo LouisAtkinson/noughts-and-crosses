@@ -56,30 +56,32 @@ let cells = document.getElementsByTagName("TD");
 let cellArray = Array.prototype.slice.call(cells);
 for (const cell of cellArray) {
     cell.addEventListener("click", function() {
-        if (turn === "p1") {
-            round++;
-            console.log(round);
-            cell.innerHTML = playerOne.mark;
-            cell.mark = playerOne.mark;
-            cell.occupied = 'yes';
-            checkWin(playerOne.mark, playerOne.name);
-            if (win === 1) {
-                console.log("win")
-                winMessage(playerOne.name);
-            } else if (round === 5){
-                drawMessage();
-            } else {
-                p2Turn();
-            }
-        } else if (turn === "p2") {
-            cell.innerHTML = playerTwo.mark;
-            cell.mark = playerTwo.mark;
-            cell.occupied = 'yes';
-            checkWin(playerTwo.mark, playerTwo.name);
-            if (win === 1) {
-                winMessage(playerTwo.name);
-            } else {
-                p1Turn();
+        if (cell.innerHTML === '') {
+            if (turn === "p1") {
+                round++;
+                console.log(round);
+                cell.innerHTML = playerOne.mark;
+                cell.mark = playerOne.mark;
+                cell.occupied = 'yes';
+                checkWin(playerOne.mark, playerOne.name);
+                if (win === 1) {
+                    console.log("win")
+                    winMessage(playerOne.name);
+                } else if (round === 5){
+                    drawMessage();
+                } else {
+                    p2Turn();
+                }
+            } else if (turn === "p2") {
+                cell.innerHTML = playerTwo.mark;
+                cell.mark = playerTwo.mark;
+                cell.occupied = 'yes';
+                checkWin(playerTwo.mark, playerTwo.name);
+                if (win === 1) {
+                    winMessage(playerTwo.name);
+                } else {
+                    p1Turn();
+                }
             }
         }
     });
@@ -101,7 +103,7 @@ function playerOneMenu() {
 }
 
 function submitP1() {
-    let p1Name = document.getElementById("p1name").value;
+    let p1Name = capitalise(document.getElementById("p1name").value);
     playerOne = player(p1Name, 'X');
     document.getElementById("form-popup1").style.display = "none";
     document.getElementById("form-popup2").style.display = "block";
@@ -109,9 +111,10 @@ function submitP1() {
 }
 
 function submitP2() {
-    let p2Name = document.getElementById("p2name").value;
+    let p2Name = capitalise(document.getElementById("p2name").value);
     playerTwo = player(p2Name, 'O');
     document.getElementById("form-popup2").style.display = "none";
+    document.getElementById("form").reset();
     p1Turn();
     return playerTwo;
 }
@@ -177,4 +180,8 @@ function clear() {
     for (const cell of cellArray) {
         cell.textContent = "";
     }
+}
+
+function capitalise(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }

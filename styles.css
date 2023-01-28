@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+:root {
+    --button: #0a8f84;
+    --buttonhover: #067c72;
+}
+
 html, body {
     width: 100%;
     height: 100%;
@@ -7,9 +14,9 @@ html, body {
 }
 
 html {
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-image: linear-gradient(to bottom, #a0d2eb, #e5eaf5,
-    #d0bdf4, #8458B3);
+    font-family: 'Varela Round', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-image: url(./sky.jpg);
+    color: white;
 }
 
 body {
@@ -32,24 +39,29 @@ body {
 td {
     height: 100px;
     width: 100px;
-    border: solid 5px gray;
+    border: solid 5px var(--buttonhover);
     text-align: center;
     font-size: 80px;
+}
+
+button {
+    cursor: pointer;
 }
 
 #playernameBtn {
     font-size: 18px;
     font-weight: 700;
+    color: white;
     padding: 10px;
     border-radius: 12px;
-    background-color: #bf86fc;
+    background-color: var(--button);
     margin: 30px;
     border: none;
     box-shadow: 2px 2px 4px black;
 }
 
 #playernameBtn:hover, input[type=button]:hover, #replay:hover, #change:hover {
-    background-color: #995ed8;
+    background-color: var(--buttonhover);
 }
 
 #form-popup1, #form-popup2 {
@@ -57,7 +69,7 @@ td {
     font-size: 20px;
     width: 340px;
     height: 150px;
-    background-color: #d0bdf4;
+    background-color: transparent;
     border: solid 1px black;
     border-radius: 10px;
     position: fixed;
@@ -90,12 +102,12 @@ input[type=text] {
 input[type=button], #replay, #change {
     font-size: 16px;
     font-weight: 700;
+    color: white;
     width: 30%;
     padding: 10px;
     margin: 5px;
     border-radius: 10px;
-    background-color: #bf86fc;
-    color: black;
+    background-color: var(--button);
     border: none;
     box-shadow: 2px 2px 4px black;
 }
@@ -113,6 +125,7 @@ input[type=button], #replay, #change {
 }
 
 footer {
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,7 +135,7 @@ footer {
     right: 0;
     width: 100%;
     padding: 8px;
-    font-size: 20px;
+    font-size: 16px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: transparent;
 }
