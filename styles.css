@@ -26,7 +26,7 @@ body {
 }
 
 #heading {
-    font-size: 36px;
+    font-size: 32px;
 }
 
 #boardcontainer {
@@ -73,12 +73,12 @@ button {
     display: none;
     font-size: 20px;
     width: 340px;
-    height: 150px;
+    height: 130px;
     background-color: rgb(0, 102, 116);
     border: solid 2px var(--buttonhover);
     border-radius: 10px;
     position: fixed;
-    top: 47%;
+    top: 44%;
     left: 50%;
     margin-left: -170px;
     padding-bottom: 30px;
@@ -97,7 +97,7 @@ label[for=p1name], label[for=p2name] {
 input[type=text] {
     width: 70%;
     padding: 5px;
-    margin: 10px 10px 0px 10px;
+    margin: 5px 10px 0px 5px;
     border: none;
     background-color: #e5eaf5;
     font-size: 16px;
@@ -105,11 +105,11 @@ input[type=text] {
 }
 
 input[type=button], #replay, #change {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     color: white;
     width: 30%;
-    padding: 10px;
+    padding: 5px;
     margin: 5px;
     border-radius: 10px;
     background-color: var(--button);
@@ -119,14 +119,18 @@ input[type=button], #replay, #change {
 
 #replay, #change {
     display: none;
-    margin: 15px;
+    margin: 10px;
     width: 200px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
-#display {
-    font-size: 24px;
-    margin: 40px 30px 10px 30px;
+.gameText {
+    font-size: 20px;
+    margin: 20px 30px 10px 20px;
+}
+
+#score {
+    margin-top: 0px;
 }
 
 footer {

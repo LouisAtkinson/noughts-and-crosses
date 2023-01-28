@@ -2,6 +2,8 @@ const boardContainer = document.getElementById("boardcontainer")
 const rowOne = document.getElementById("rowone");
 const rowTwo = document.getElementById("rowtwo");
 const rowThree = document.getElementById("rowthree");
+const scoreDisplay = document.getElementById('score');
+let winSound = new Audio('win.wav');
 
 const playernameBtn = document.getElementById("playernameBtn");
 playernameBtn.addEventListener("click", playerOneMenu);
@@ -21,7 +23,10 @@ replay.addEventListener("click", function() {
 });
 
 const changeNames = document.getElementById("change");
-changeNames.addEventListener("click", playerOneMenu)
+changeNames.addEventListener("click", function() {
+    score.innerHTML = '';
+    playerOneMenu();
+})
 
 let playerOne = {};
 let playerTwo = {};
@@ -87,10 +92,11 @@ for (const cell of cellArray) {
     });
 }
 
-const player = (name, mark) => {
+const player = (name, mark, score) => {
     const getName = () => name;
     const getMark = () => mark;
-    return {name, mark, getName, getMark};
+    const getScore = () => score;
+    return {name, mark, score, getName, getMark, getScore};
 }
 
 function playerOneMenu() {
@@ -104,7 +110,7 @@ function playerOneMenu() {
 
 function submitP1() {
     let p1Name = capitalise(document.getElementById("p1name").value);
-    playerOne = player(p1Name, 'X');
+    playerOne = player(p1Name, 'X', 0);
     document.getElementById("form-popup1").style.display = "none";
     document.getElementById("form-popup2").style.display = "block";
     return playerOne;
@@ -112,7 +118,7 @@ function submitP1() {
 
 function submitP2() {
     let p2Name = capitalise(document.getElementById("p2name").value);
-    playerTwo = player(p2Name, 'O');
+    playerTwo = player(p2Name, 'O', 0);
     document.getElementById("form-popup2").style.display = "none";
     document.getElementById("form").reset();
     p1Turn();
@@ -184,7 +190,14 @@ function checkWin(mark, name) {
 }
 
 function winMessage(name) {
+    winSound.play();
+    if (turn === 'p1') {
+        playerOne.score++;
+    } else if (turn === 'p2') {
+        playerTwo.score++;
+    }
     display.innerHTML = "Congratulations " + name + "! You have won!"
+    scoreDisplay.innerHTML = playerOne.name + ": " + playerOne.score + '<br>' + playerTwo.name + ": " + playerTwo.score;
     win = 0;
     round = 0;
     turn = 0;
