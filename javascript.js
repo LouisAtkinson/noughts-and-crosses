@@ -135,27 +135,51 @@ function checkWin(mark, name) {
     if (gameBoard.a1.textContent === mark && gameBoard.a2.textContent === 
     mark && gameBoard.a3.textContent === mark) {
         win = 1;
+        gameBoard.a1.classList.add('win');
+        gameBoard.a2.classList.add('win');
+        gameBoard.a3.classList.add('win');
     } else if (gameBoard.b1.textContent === mark && gameBoard.b2.textContent === 
     mark && gameBoard.b3.textContent === mark) {
         win = 1;
+        gameBoard.b1.classList.add('win');
+        gameBoard.b2.classList.add('win');
+        gameBoard.b3.classList.add('win');
     } else if (gameBoard.c1.textContent === mark && gameBoard.c2.textContent === 
     mark && gameBoard.c3.textContent === mark) {
         win = 1;
+        gameBoard.c1.classList.add('win');
+        gameBoard.c2.classList.add('win');
+        gameBoard.c3.classList.add('win');
     } else if (gameBoard.a1.textContent === mark && gameBoard.b1.textContent === 
     mark && gameBoard.c1.textContent === mark) {
         win = 1;
+        gameBoard.a1.classList.add('win');
+        gameBoard.b1.classList.add('win');
+        gameBoard.c1.classList.add('win');
     } else if (gameBoard.a2.textContent === mark && gameBoard.b2.textContent === 
     mark && gameBoard.c2.textContent === mark) {
         win = 1;
+        gameBoard.a2.classList.add('win');
+        gameBoard.b2.classList.add('win');
+        gameBoard.c2.classList.add('win');
     } else if (gameBoard.a3.textContent === mark && gameBoard.b3.textContent === 
     mark && gameBoard.c3.textContent === mark) {
         win = 1;
+        gameBoard.a3.classList.add('win');
+        gameBoard.b3.classList.add('win');
+        gameBoard.c3.classList.add('win');
     } else if (gameBoard.a1.textContent === mark && gameBoard.b2.textContent === 
     mark && gameBoard.c3.textContent === mark) {
         win = 1;
+        gameBoard.a1.classList.add('win');
+        gameBoard.b2.classList.add('win');
+        gameBoard.c3.classList.add('win');
     } else if (gameBoard.a3.textContent === mark && gameBoard.b2.textContent === 
     mark && gameBoard.c1.textContent === mark) {
         win = 1;
+        gameBoard.a3.classList.add('win');
+        gameBoard.b2.classList.add('win');
+        gameBoard.c1.classList.add('win');
     } else {}
 }
 
@@ -179,6 +203,7 @@ function drawMessage() {
 function clear() {
     for (const cell of cellArray) {
         cell.textContent = "";
+        cell.classList.remove('win');
     }
 }
 
